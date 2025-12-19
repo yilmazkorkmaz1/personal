@@ -1,1 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yilmaz Korkmaz | Personal Website</title>
 
+  <!-- Social preview (optional) -->
+  <meta property="og:title" content="Yilmaz Korkmaz | PhD Student @ Johns Hopkins University" />
+  <meta property="og:description" content="Research in medical imaging, diffusion/autoregressive generative models, and vision-language / change detection." />
+  <meta property="og:image" content="resources/avatar.jpg" />
+
+  <style type="text/css">
+    /* ===== Based on your current single-page template styling ===== */
+    body {
+      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+      font-weight: 300;
+      font-size: 18px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 1100px;
+      line-height: 1.35;
+    }
+
+    @media (max-width: 1160px) {
+      body { width: 94vw; }
+    }
+
+    h1 { font-size: 34px; font-weight: 300; margin: 0; }
+    h2 { font-size: 26px; font-weight: 300; margin: 32px 0 12px 0; }
+    h3 { font-size: 20px; font-weight: 400; margin: 0 0 6px 0; }
+    .muted { color: #666; }
+    .small { font-size: 15px; }
+    .tight { margin-top: 8px; }
+
+    a:link, a:visited { color: #1367a7; text-decoration: none; }
+    a:hover { color: #208799; }
+
+    hr {
+      border: 0;
+      height: 1px;
+      margin: 26px 0;
+      background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.55), rgba(0,0,0,0));
+    }
+
+    /* ===== Top nav ===== */
+    .nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+      margin-bottom: 18px;
+      z-index: 5;
+    }
+    .nav a { margin-right: 14px; font-size: 16px; }
+    .nav .right { float: right; }
+    .nav::after { content: ""; display: block; clear: both; }
+
+    /* ===== Hero ===== */
+    .hero {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      grid-gap: 18px;
+      align-items: center;
+      margin-top: 10px;
+    }
+    @media (max-width: 700px) {
+      .hero { grid-template-columns: 1fr; }
+    }
+    img.portrait {
+      width: 170px;
+      height: 170px;
+      object-fit: cover;
+      border: 1px solid #eee;
+      border-radius: 12px;
+    }
+    .links a { margin-right: 12px; }
+
+    .callout {
+      background-color: #f3f3f3;
+      border: 1px solid #eeeeee;
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+
+    /* ===== Lists ===== */
+    ul.clean { margin: 0; padding-left: 18px; }
+    ul.clean li { margin: 6px 0; }
+
+    /* ===== Project cards ===== */
+    .project {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      grid-gap: 16px;
+      align-items: start;
+      margin: 18px 0;
+      padding: 14px 14px;
+      border: 1px solid #efefef;
+      border-radius: 12px;
+    }
+    @media (max-width: 850px) {
+      .project { grid-template-columns: 1fr; }
+    }
+
+    .project img {
+      width: 260px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid #eee;
+    }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid #e6e6e6;
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 13px;
+      color: #555;
+      margin-right: 8px;
+      margin-top: 6px;
+    }
+
+    /* ===== BibTeX toggles ===== */
+    .bibbtn {
+      display: inline-block;
+      border: 1px solid #e6e6e6;
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: 14px;
+      margin-right: 10px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .bibtex {
+      display: none;
+      margin-top: 10px;
+      padding: 12px 12px;
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 13px;
+      white-space: pre-wrap;
+    }
+    .footer { margin: 38px 0 18px 0; color: #666; font-size: 14px; }
+  </style>
+
+  <script>
+    function toggleBib(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.style.display = (el.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+
+<body>
+
+  <div class="nav">
+    <a href="#about">About</a>
+    <a href="#news">News</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#publications">Publications</a>
+    <a href="#service">Service</a>
+    <a href="#awards">Awards</a>
+  </div>
+
+  <div class="hero" id="about">
+    <!-- Optional: put a headshot at resources/profile.jpg -->
+    <img class="portrait" src="resources/avatar.jpg" alt="Profile photo (optional)">
+    <div>
+      <h1>Yilmaz Korkmaz</h1>
+      <div class="muted tight">Ph.D. student, Electrical Engineering — Johns Hopkins University (VIU Lab)</div>
+      <div class="links tight">
+        <a href="mailto:yilmazkorkmz@gmail.com">Email</a>
+        <a href="https://scholar.google.com/citations?user=JqK7g60AAAAJ&hl=en">Google Scholar</a>
+        <a href="https://www.linkedin.com/">LinkedIn</a>
+        <a href="https://github.com/yilmazkorkmaz1">GitHub</a>
+      </div>
+
+      <div class="callout tight">
+        I’m a Ph.D. candidate in the Vision and Image Understanding Lab at Johns Hopkins University, working under Prof. Vishal M. Patel. My work leverages structured state space models, vision language models, and diffusion models for applications in computer vision and medical imaging such as anomaly detection, instruction guided image editing, remote sensing change detection, and also medical image translation and reconstruction.
+        <br>
+        <div style="margin-top: 1.5em;">Before joining Johns Hopkins, I earned both my B.Sc. and M.Sc. with High Honors from Bilkent University where I worked under supervision of Prof. Tolga Cukur, focusing on deep unsupervised learning for accelerated MRI reconstruction.</div> 
+        <br style="margin-bottom: 1.5em;">
+        Feel free to reach out if you’d like to discuss research or potential collaborations!
+        <br>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="news">News</h2>
+  <ul class="clean">
+    <li><b>Dec 2025:</b> <i>Referring Change Detection in Remote Sensing Imagery</i> (WACV 2026) is available on arXiv. <a href="https://yilmazkorkmaz1.github.io/RCD">Project Website</a></li>
+    <li><b>Aug 2025:</b> Completed my Applied Science Internship at Amazon (Decision Science & Technology, RME) focusing on anomaly detection.</li>
+  </ul>
+
+  <h2 id="education">Education</h2>
+  <ul class="clean">
+    <li><b>Ph.D. in Electrical Engineering</b>, Johns Hopkins University (Jan 2023 – Present)</li>
+    <li><b>M.Sc. in Electrical Engineering</b>, Bilkent University (Aug 2019 – Aug 2022) — Thesis: <i>Deep Unsupervised Learning for Accelerated MRI Reconstruction</i></li>
+    <li><b>B.Sc. in Electrical Engineering</b>, Bilkent University (Sept 2014 – June 2019)</li>
+  </ul>
+
+  <h2 id="experience">Experience</h2>
+  <ul class="clean">
+    <li><b>Applied Science Intern</b>, Amazon — Decision Science & Technology (DST), RME (Bellevue, WA; May 2025 – Aug 2025)</li>
+    <li><b>Graduate Research Assistant</b>, Vision and Image Understanding (VIU) Lab, Johns Hopkins University (Jan 2023 – present)</li>
+    <li><b>Graduate Research Assistant</b>, National Magnetic Resonance Research Center, Bilkent University (Aug 2019 – Jan 2023)</li>
+  </ul>
+
+  <h2 id="projects">Selected First‑Author Projects</h2>
+
+  <!-- ====== Project: RCD ====== -->
+  <div class="project">
+    <div>
+      <img src="resources/rcd_figure.png" alt="RCD figure">
+    </div>
+    <div>
+      <h3>Referring Change Detection in Remote Sensing Imagery</h3>
+      <div class="muted small">WACV 2026 (Accepted, in press) • arXiv:2512.11719</div>
+      <div class="tight">
+        Referring Change Detection (RCD) uses natural-language prompts to query specific semantic changes in bi-temporal remote-sensing images, enabling targeted change detection.
+        Includes <b>RCDNet</b> (cross-modal fusion) and <b>RCDGen</b> (diffusion-based synthetic data generation).
+      </div>
+      <div class="tight">
+        <span class="tag">Remote sensing</span><span class="tag">Vision-language</span><span class="tag">Diffusion</span>
+      </div>
+      <div class="tight">
+        <a href="https://arxiv.org/abs/2512.11719">Paper</a> ·
+        <a href="https://github.com/yilmazkorkmaz1/referring_change_detection">Code</a> ·
+        <a href="https://yilmazkorkmaz1.github.io/RCD">Project page</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== Project: MambaRecon ====== -->
+  <div class="project">
+    <div>
+      <img src="resources/mambarecon_figure.png" alt="MambaRecon figure">
+    </div>
+    <div>
+      <h3>MambaRecon: MRI Reconstruction with Structured State Space Models</h3>
+      <div class="muted small">WACV 2025</div>
+      <div class="tight">
+        An unrolled MRI reconstruction framework that combines physics-driven data consistency with structured state space models (Mamba) to capture long-range dependencies efficiently.
+      </div>
+      <div class="tight">
+        <span class="tag">MRI reconstruction</span><span class="tag">SSM / Mamba</span><span class="tag">Physics-guided</span>
+      </div>
+      <div class="tight">
+        <a href="https://openaccess.thecvf.com/content/WACV2025/papers/Korkmaz_MambaRecon_MRI_Reconstruction_with_Structured_State_Space_Models_WACV_2025_paper.pdf">Paper</a> ·
+        <a href="https://github.com/yilmazkorkmaz1/MambaRecon">Code</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== Project: I2I-Galip ====== -->
+  <div class="project">
+    <div>
+      <img src="resources/galip_figure.png" alt="I2I-Galip figure">
+    </div>
+    <div>
+      <h3>I2I‑Galip: Unsupervised Medical Image Translation Using Generative Adversarial CLIP</h3>
+      <div class="muted small">MIDL 2025</div>
+      <div class="tight">
+        A medical image translation framework leveraging pre-trained multimodal foundation models, enabling efficient multi-domain translation with a lightweight generator.
+      </div>
+      <div class="tight">
+        <span class="tag">Medical I2I</span><span class="tag">CLIP</span><span class="tag">GAN</span>
+      </div>
+      <div class="tight">
+        <a href="https://openreview.net/forum?id=lAQ29DUZCa">Paper</a> ·
+        <a href="https://github.com/yilmazkorkmaz1/I2I-Galip">Code</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== Project: Addressing Data Scarcity in Materials Science Research with Deep Generative Models ====== -->
+  <div class="project">
+    <div>
+      <img src="resources/msee_figure.png" alt="Data Scarcity figure">
+    </div>
+    <div>
+      <h3>Addressing Data Scarcity in Materials Science Research with Deep Generative Models</h3>
+      <div class="muted small">Under review</div>
+      <div class="tight">
+        We address data scarcity in materials science by developing a synthetic data generation framework using denoising diffusion models and finetuned SAM. Our synthetic dataset improves semantic segmentation performance across diverse set of segmentation backbones.
+      </div>
+      <div class="tight">
+        <span class="tag">Materials science</span><span class="tag">Generative models</span><span class="tag">Diffusion</span><span class="tag">Segmentation</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== Project: SSDiffRecon ====== -->
+  <div class="project">
+    <div>
+      <img src="resources/ssdiffrecon_figure.png" alt="SSDiffRecon figure">
+    </div>
+    <div>
+      <h3>Self‑Supervised MRI Reconstruction with Unrolled Diffusion Models (SSDiffRecon)</h3>
+      <div class="muted small">MICCAI 2023</div>
+      <div class="tight">
+        A self-supervised diffusion-based reconstruction method trained using only undersampled k-space data by combining diffusion-style unrolled steps with data consistency.
+      </div>
+      <div class="tight">
+        <span class="tag">Diffusion</span><span class="tag">Self-supervised</span><span class="tag">MRI</span>
+      </div>
+      <div class="tight">
+        <a href="https://arxiv.org/pdf/2306.16654">Paper</a> ·
+        <a href="https://github.com/yilmazkorkmaz1/SSDiffRecon">Code</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== Project: SLATER ====== -->
+  <div class="project">
+    <div>
+      <img src="resources/slater_figure.png" alt="SLATER figure">
+    </div>
+    <div>
+      <h3>Unsupervised MRI Reconstruction via Zero‑Shot Learned Adversarial Transformers (SLATER)</h3>
+      <div class="muted small">IEEE TMI 2022</div>
+      <div class="tight">
+        One of the very first MRI reconstruction frameworks utilizing transformers, employing a zero-shot learning approach that combines adversarial training with transformer architectures to achieve unsupervised reconstruction without requiring paired training data.
+      </div>
+      <div class="tight">
+        <span class="tag">MRI reconstruction</span><span class="tag">Transformers</span><span class="tag">Adversarial</span><span class="tag">Unsupervised</span>
+      </div>
+      <div class="tight">
+        <a href="https://ieeexplore.ieee.org/abstract/document/9695412">Paper</a> ·
+        <a href="https://github.com/icon-lab/SLATER">Code</a>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="publications">Publications (selected)</h2>
+  <ul class="clean">
+    <li><b>Referring Change Detection in Remote Sensing Imagery</b> — WACV 2026 (accepted, in press). <a href="https://arxiv.org/abs/2512.11719">arXiv</a></li>
+    <li><b>I2I‑Galip: Unsupervised Medical Image Translation Using Generative Adversarial CLIP</b> — MIDL 2025. <a href="https://openreview.net/forum?id=lAQ29DUZCa">OpenReview</a></li>
+    <li><b>MambaRecon: MRI Reconstruction with Structured State Space Models</b> — WACV 2025. <a href="https://openaccess.thecvf.com/content/WACV2025/papers/Korkmaz_MambaRecon_MRI_Reconstruction_with_Structured_State_Space_Models_WACV_2025_paper.pdf">PDF</a></li>
+    <li><b>Self‑supervised MRI Reconstruction with Unrolled Diffusion Models</b> — MICCAI 2023. <a href="https://arxiv.org/abs/2306.16654">arXiv</a></li>
+    <li><b>Unsupervised MRI Reconstruction via Zero‑Shot Learned Adversarial Transformers</b> — IEEE TMI 2022. <a href="https://ieeexplore.ieee.org/abstract/document/9695412">IEEE</a> · <a href="https://github.com/icon-lab/SLATER">Code</a></li>
+    <li><b>MRI Reconstruction with Conditional Adversarial Transformers</b> — MLMIR 2022.</li>
+    <li><b>Deep MRI Reconstruction with Generative Vision Transformers</b> — MLMIR 2021.</li>
+  </ul>
+
+  <h2 id="service">Service</h2>
+  <ul class="clean">
+    <li>Reviewer — IEEE TMI (since 2023)</li>
+    <li>Reviewer — IEEE TPAMI (since 2023)</li>
+    <li>Reviewer — IEEE TCI (since 2023)</li>
+    <li>Reviewer — MICCAI (since 2024)</li>
+  </ul>
+
+  <hr>
+  <div class="footer">
+    Last updated: Dec 2025 • Hosted on GitHub Pages
+  </div>
+
+</body>
+</html>
