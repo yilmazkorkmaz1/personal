@@ -6,8 +6,8 @@
   <title>Yilmaz Korkmaz | Personal Website</title>
 
   <!-- Social preview (optional) -->
-  <meta property="og:title" content="Yilmaz Korkmaz | PhD Student @ Johns Hopkins University" />
-  <meta property="og:description" content="Research in medical imaging, diffusion/autoregressive generative models, and vision-language / change detection." />
+  <meta property="og:title" content="Yilmaz Korkmaz | Ph.D. Candidate @ Johns Hopkins University" />
+  <meta property="og:description" content="Research on generative modeling and multimodal learning: diffusion, visual autoregressive, structured state-space, and vision-language models for medical imaging, remote sensing, and beyond." />
   <meta property="og:image" content="resources/avatar.jpg" />
 
   <style type="text/css">
@@ -145,10 +145,27 @@
       font-size: 13px;
       white-space: pre-wrap;
     }
+    .gh { white-space: nowrap; }
+    .gh svg { width: 15px; height: 15px; vertical-align: -2px; margin-right: 3px; fill: currentColor; }
+    a.stars { color: #666; font-size: 14px; margin-left: 5px; white-space: nowrap; }
+    a.stars:empty { display: none; }
     .footer { margin: 38px 0 18px 0; color: #666; font-size: 14px; }
   </style>
 
   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll("a.stars[data-repo]").forEach(function (el) {
+        fetch("https://api.github.com/repos/" + el.dataset.repo)
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (d) {
+            if (d && typeof d.stargazers_count === "number") {
+              el.textContent = "\u2605 " + d.stargazers_count;
+            }
+          })
+          .catch(function () {});
+      });
+    });
+
     function toggleBib(id) {
       const el = document.getElementById(id);
       if (!el) return;
@@ -174,7 +191,7 @@
     <img class="portrait" src="resources/avatar.jpg" alt="Profile photo (optional)">
     <div>
       <h1>Yilmaz Korkmaz</h1>
-      <div class="muted tight">Ph.D. student, Electrical Engineering — Johns Hopkins University (VIU Lab)</div>
+      <div class="muted tight">Ph.D. candidate, Electrical and Computer Engineering, Johns Hopkins University (VIU Lab)<br>Currently Applied Science Intern at Amazon (ASCS-AI-Lab)</div>
       <div class="links tight">
         <a href="mailto:yilmazkorkmz@gmail.com">Email</a>
         <a href="https://scholar.google.com/citations?user=JqK7g60AAAAJ&hl=en">Google Scholar</a>
@@ -183,7 +200,7 @@
       </div>
 
       <div class="callout tight">
-        I’m a Ph.D. candidate in the Vision and Image Understanding Lab at Johns Hopkins University, working under Prof. Vishal M. Patel. My work leverages structured state space models, vision language models, and diffusion models for applications in computer vision and medical imaging such as anomaly detection, instruction guided image editing, remote sensing change detection, and also medical image translation and reconstruction.
+        I’m a Ph.D. candidate in the Vision and Image Understanding Lab at Johns Hopkins University, working under Prof. Vishal M. Patel. My research focuses on generative modeling and multimodal learning via diffusion, visual autoregressive, structured state-space, and vision-language models, with applications in medical image reconstruction and translation, remote sensing change detection, label-efficient segmentation and tracking, and instruction-guided image editing. I have also interned at Amazon and Uber, where I brought recent research into production models.
         <br>
         <div style="margin-top: 1.5em;">Before joining Johns Hopkins, I earned both my B.Sc. and M.Sc. with High Honors from Bilkent University where I worked under supervision of Prof. Tolga Cukur, focusing on deep unsupervised learning for accelerated MRI reconstruction.</div> 
         <br style="margin-bottom: 1.5em;">
@@ -195,35 +212,60 @@
 
   <h2 id="news">News</h2>
   <ul class="clean">
-    <li><b>Jan 2026:</b> <i>RemoteVAR: Autoregressive Visual Modeling for Remote Sensing Change Detection</i> is available on arXiv! <a href="https://arxiv.org/pdf/2601.11898">Paper Link</a></li>
-    <li><b>Dec 2025:</b> <i>Referring Change Detection in Remote Sensing Imagery</i> (WACV 2026) is available on arXiv. <a href="https://yilmazkorkmaz1.github.io/RCD">Project Website</a></li>
-    <li><b>Aug 2025:</b> Completed my Applied Science Internship at Amazon (Decision Science & Technology, RME) focusing on anomaly detection.</li>
+    <li><b>Aug 2026:</b> Started an Applied Science Internship at Amazon, ASCS-AI-Lab (Amazon Selection and Catalog Systems).</li>
+    <li><b>Jul 2026:</b> Completed my Ph.D. Software Engineering Internship at Uber (Applied AI Team).</li>
+    <li><b>May 2026:</b> <i>Next-Acceleration-Scale Prediction for Autoregressive MRI Reconstruction</i> is available on arXiv. <a href="https://arxiv.org/pdf/2605.19354">Paper Link</a> · <a href="https://yilmazkorkmaz1.github.io/discrete-mri-reconstruction-opd/">Project Website</a></li>
+    <li><b>Mar 2026:</b> <i>RemoteVAR</i> is accepted to IEEE IGARSS 2026!</li>
   </ul>
 
   <h2 id="education">Education</h2>
   <ul class="clean">
-    <li><b>Ph.D. in Electrical Engineering</b>, Johns Hopkins University (Jan 2023 – Present)</li>
+    <li><b>Ph.D. in Electrical and Computer Engineering</b>, Johns Hopkins University (Jan 2023 – Present; tentative graduation December 2026)</li>
     <li><b>M.Sc. in Electrical Engineering</b>, Bilkent University (Aug 2019 – Aug 2022)</li>
     <li><b>B.Sc. in Electrical Engineering</b>, Bilkent University (Sept 2014 – June 2019)</li>
   </ul>
 
   <h2 id="experience">Experience</h2>
   <ul class="clean">
-    <li><b>Applied Science Intern</b>, Amazon — Decision Science & Technology (DST), RME (Bellevue, WA; May 2025 – Aug 2025)</li>
+    <li><b>Applied Science Intern</b>, Amazon, ASCS-AI-Lab (Amazon Selection and Catalog Systems) (Seattle, WA; Aug 2026 – Present)</li>
+    <li><b>Ph.D. Software Engineering Intern</b>, Uber, Applied AI Team (May 2026 – Jul 2026)</li>
+    <li><b>Applied Science Intern</b>, Amazon, Decision Science & Technology (DST), Reliability and Maintenance Engineering (Bellevue, WA; May 2025 – Aug 2025)</li>
     <li><b>Graduate Research Assistant</b>, Vision and Image Understanding (VIU) Lab, Johns Hopkins University (Jan 2023 – present)</li>
     <li><b>Graduate Research Assistant</b>, National Magnetic Resonance Research Center, Bilkent University (Aug 2019 – Jan 2023)</li>
   </ul>
 
   <h2 id="projects">Selected First‑Author Projects</h2>
 
+  <!-- ====== Project: Next-Acceleration-Scale Prediction ====== -->
+  <div class="project">
+    <div>
+      <img src="resources/nasp_distill_figure.png" alt="On-policy privileged information distillation figure">
+    </div>
+    <div>
+      <h3>Next-Acceleration-Scale Prediction for Autoregressive MRI Reconstruction</h3>
+      <div class="muted small">Under review • arXiv:2605.19354</div>
+      <div class="tight">
+        We move MRI reconstruction into a discrete multi-scale latent space and pose it as autoregressive next-acceleration-scale prediction, which yields sharp reconstructions even under extreme undersampling.
+        Because this discrete formulation aligns with LLM post-training, we introduce <b>on-policy privileged information distillation</b> for visual autoregressive models: a teacher that sees the fully sampled acquisition at training time (privileged context) supervises a student trained on its own rollouts, consistently improving reconstruction quality.
+      </div>
+      <div class="tight">
+        <span class="tag">MRI reconstruction</span><span class="tag">Visual autoregressive</span><span class="tag">Post-training</span><span class="tag">Privileged information distillation</span>
+      </div>
+      <div class="tight">
+        <a href="https://arxiv.org/pdf/2605.19354">Paper</a> ·
+        <a href="https://yilmazkorkmaz1.github.io/discrete-mri-reconstruction-opd/">Project page</a>
+      </div>
+    </div>
+  </div>
+
     <!-- ====== Project: RemoteVAR ====== -->
   <div class="project">
     <div>
-      <img src="resources/remotevar_figure.pdf" alt="RemoteVAR figure">
+      <img src="resources/remotevar_figure.png" alt="RemoteVAR figure">
     </div>
     <div>
       <h3>RemoteVAR: Autoregressive Visual Modeling for Remote Sensing Change Detection</h3>
-      <div class="muted small">Under Review</div>
+      <div class="muted small">IEEE IGARSS 2026 (accepted) • arXiv:2601.11898</div>
       <div class="tight">
         RemoteVAR repurposes visual autoregressive models for dense remote sensing change detection via bi-temporal feature conditioning. 
         It outperforms strong baselines on standard benchmarks, showing autoregressive modeling is competitive for pixel-level change prediction.
@@ -233,7 +275,7 @@
       </div>
       <div class="tight">
         <a href="https://arxiv.org/pdf/2601.11898">Paper</a> ·
-        <a href="https://github.com/yilmazkorkmaz1/RemoteVAR">Code</a>
+        <a class="gh" href="https://github.com/yilmazkorkmaz1/RemoteVAR"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>Code</a><a class="stars" href="https://github.com/yilmazkorkmaz1/RemoteVAR/stargazers" data-repo="yilmazkorkmaz1/RemoteVAR"></a>
       </div>
     </div>
   </div>
@@ -245,7 +287,7 @@
     </div>
     <div>
       <h3>Referring Change Detection in Remote Sensing Imagery</h3>
-      <div class="muted small">WACV 2026 (Accepted, in press) • arXiv:2512.11719</div>
+      <div class="muted small">WACV 2026 • arXiv:2512.11719</div>
       <div class="tight">
         Referring Change Detection (RCD) uses natural-language prompts to query specific semantic changes in bi-temporal remote-sensing images, enabling targeted change detection.
         Includes <b>RCDNet</b> (cross-modal fusion) and <b>RCDGen</b> (diffusion-based synthetic data generation).
@@ -254,8 +296,9 @@
         <span class="tag">Remote sensing</span><span class="tag">Vision-language</span><span class="tag">Diffusion</span>
       </div>
       <div class="tight">
-        <a href="https://arxiv.org/abs/2512.11719">Paper</a> ·
-        <a href="https://github.com/yilmazkorkmaz1/referring_change_detection">Code</a> ·
+        <a href="https://openaccess.thecvf.com/content/WACV2026/html/Korkmaz_Referring_Change_Detection_in_Remote_Sensing_Imagery_WACV_2026_paper.html">Paper</a> ·
+        <a href="https://arxiv.org/abs/2512.11719">arXiv</a> ·
+        <a class="gh" href="https://github.com/yilmazkorkmaz1/referring_change_detection"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>Code</a><a class="stars" href="https://github.com/yilmazkorkmaz1/referring_change_detection/stargazers" data-repo="yilmazkorkmaz1/referring_change_detection"></a> ·
         <a href="https://yilmazkorkmaz1.github.io/RCD">Project page</a>
       </div>
     </div>
@@ -277,7 +320,7 @@
       </div>
       <div class="tight">
         <a href="https://openaccess.thecvf.com/content/WACV2025/papers/Korkmaz_MambaRecon_MRI_Reconstruction_with_Structured_State_Space_Models_WACV_2025_paper.pdf">Paper</a> ·
-        <a href="https://github.com/yilmazkorkmaz1/MambaRecon">Code</a>
+        <a class="gh" href="https://github.com/yilmazkorkmaz1/MambaRecon"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>Code</a><a class="stars" href="https://github.com/yilmazkorkmaz1/MambaRecon/stargazers" data-repo="yilmazkorkmaz1/MambaRecon"></a>
       </div>
     </div>
   </div>
@@ -297,7 +340,7 @@
         <span class="tag">Medical I2I</span><span class="tag">CLIP</span><span class="tag">GAN</span>
       </div>
       <div class="tight">
-        <a href="https://openreview.net/forum?id=lAQ29DUZCa">Paper</a> ·
+        <a href="https://proceedings.mlr.press/v301/korkmaz26a.html">Paper</a> ·
         <a href="https://github.com/yilmazkorkmaz1/I2I-Galip">Code</a>
       </div>
     </div>
@@ -310,12 +353,15 @@
     </div>
     <div>
       <h3>Addressing Data Scarcity in Materials Science Research with Deep Generative Models</h3>
-      <div class="muted small">Under review</div>
+      <div class="muted small">WACV 2026 Workshop: Foundational Models Beyond the Visual Spectrum</div>
       <div class="tight">
         We address data scarcity in materials science by developing a synthetic data generation framework using denoising diffusion models and finetuned SAM. Our synthetic dataset improves semantic segmentation performance across diverse set of segmentation backbones.
       </div>
       <div class="tight">
         <span class="tag">Materials science</span><span class="tag">Generative models</span><span class="tag">Diffusion</span><span class="tag">Segmentation</span>
+      </div>
+      <div class="tight">
+        <a href="https://openaccess.thecvf.com/content/WACV2026W/FoMoV/html/Korkmaz_Addressing_Data_Scarcity_in_Materials_Science_Research_with_Deep_Generative_WACVW_2026_paper.html">Paper</a>
       </div>
     </div>
   </div>
@@ -336,7 +382,7 @@
       </div>
       <div class="tight">
         <a href="https://arxiv.org/pdf/2306.16654">Paper</a> ·
-        <a href="https://github.com/yilmazkorkmaz1/SSDiffRecon">Code</a>
+        <a class="gh" href="https://github.com/yilmazkorkmaz1/SSDiffRecon"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>Code</a><a class="stars" href="https://github.com/yilmazkorkmaz1/SSDiffRecon/stargazers" data-repo="yilmazkorkmaz1/SSDiffRecon"></a>
       </div>
     </div>
   </div>
@@ -357,15 +403,18 @@
       </div>
       <div class="tight">
         <a href="https://ieeexplore.ieee.org/abstract/document/9695412">Paper</a> ·
-        <a href="https://github.com/icon-lab/SLATER">Code</a>
+        <a class="gh" href="https://github.com/icon-lab/SLATER"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>Code</a><a class="stars" href="https://github.com/icon-lab/SLATER/stargazers" data-repo="icon-lab/SLATER"></a>
       </div>
     </div>
   </div>
 
   <h2 id="publications">Publications (selected)</h2>
   <ul class="clean">
-    <li><b>Referring Change Detection in Remote Sensing Imagery</b> — WACV 2026 (accepted, in press). <a href="https://arxiv.org/abs/2512.11719">arXiv</a></li>
-    <li><b>I2I‑Galip: Unsupervised Medical Image Translation Using Generative Adversarial CLIP</b> — MIDL 2025. <a href="https://openreview.net/forum?id=lAQ29DUZCa">OpenReview</a></li>
+    <li><b>Next-Acceleration-Scale Prediction for Autoregressive MRI Reconstruction</b> — Under review. <a href="https://arxiv.org/abs/2605.19354">arXiv</a> · <a href="https://yilmazkorkmaz1.github.io/discrete-mri-reconstruction-opd/">Project page</a></li>
+    <li><b>RemoteVAR: Autoregressive Visual Modeling for Remote Sensing Change Detection</b> — IEEE IGARSS 2026 (accepted). <a href="https://arxiv.org/abs/2601.11898">arXiv</a> · <a href="https://github.com/yilmazkorkmaz1/RemoteVAR">Code</a></li>
+    <li><b>Referring Change Detection in Remote Sensing Imagery</b> — WACV 2026. <a href="https://openaccess.thecvf.com/content/WACV2026/html/Korkmaz_Referring_Change_Detection_in_Remote_Sensing_Imagery_WACV_2026_paper.html">Paper</a> · <a href="https://arxiv.org/abs/2512.11719">arXiv</a></li>
+    <li><b>Addressing Data Scarcity in Materials Science Research with Deep Generative Models</b> — WACV 2026 Workshop (FoMoV). <a href="https://openaccess.thecvf.com/content/WACV2026W/FoMoV/html/Korkmaz_Addressing_Data_Scarcity_in_Materials_Science_Research_with_Deep_Generative_WACVW_2026_paper.html">Paper</a></li>
+    <li><b>I2I‑Galip: Unsupervised Medical Image Translation Using Generative Adversarial CLIP</b> — MIDL 2025. <a href="https://proceedings.mlr.press/v301/korkmaz26a.html">PMLR</a></li>
     <li><b>MambaRecon: MRI Reconstruction with Structured State Space Models</b> — WACV 2025. <a href="https://openaccess.thecvf.com/content/WACV2025/papers/Korkmaz_MambaRecon_MRI_Reconstruction_with_Structured_State_Space_Models_WACV_2025_paper.pdf">PDF</a></li>
     <li><b>Self‑supervised MRI Reconstruction with Unrolled Diffusion Models</b> — MICCAI 2023. <a href="https://arxiv.org/abs/2306.16654">arXiv</a></li>
     <li><b>Unsupervised MRI Reconstruction via Zero‑Shot Learned Adversarial Transformers</b> — IEEE TMI 2022. <a href="https://ieeexplore.ieee.org/abstract/document/9695412">IEEE</a> · <a href="https://github.com/icon-lab/SLATER">Code</a></li>
@@ -379,11 +428,12 @@
     <li>Reviewer — IEEE TPAMI (since 2023)</li>
     <li>Reviewer — IEEE TCI (since 2023)</li>
     <li>Reviewer — MICCAI (since 2024)</li>
+    <li>Reviewer — Medical Image Analysis (since 2025)</li>
   </ul>
 
   <hr>
   <div class="footer">
-    Last updated: Dec 2025 • Hosted on GitHub Pages
+    Last updated: Oct 2026 • Hosted on GitHub Pages
   </div>
 
 </body>
